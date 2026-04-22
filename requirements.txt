@@ -1,0 +1,5 @@
+# Core dependencies for AutoStream AI Agent
+langchain>=0.3.0              # LangChain framework for LLM integration
+langchain-groq>=0.2.0         # Groq (Llama 3) integration for LangChain
+langgraph>=0.2.0              # LangGraph for stateful agent workflows
+python-dotenv>=1.0.0          # Load environment variables from .env file

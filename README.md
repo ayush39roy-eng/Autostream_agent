@@ -1,10 +1,10 @@
-# 🎬 AutoStream — Conversational AI Agent
+#  AutoStream — Conversational AI Agent
 
 A stateful conversational AI agent for **AutoStream**, a fictional SaaS company providing automated video editing tools for content creators. Built with **Python + LangGraph + Groq (Llama 3)**.
 
 ---
 
-## ✨ Features
+##  Features
 
 | Capability | Description |
 |---|---|
@@ -15,7 +15,7 @@ A stateful conversational AI agent for **AutoStream**, a fictional SaaS company 
 
 ---
 
-## 🚀 How to Run Locally
+##  How to Run Locally
 
 ### Prerequisites
 - Python 3.9+
@@ -30,7 +30,7 @@ cd autostream-agent
 
 # 2. Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate        # macOS/Linux
+source venv/bin/activate        
 # venv\Scripts\activate          # Windows
 
 # 3. Install dependencies
@@ -67,12 +67,12 @@ python agent.py
 🤖 AutoStream: Perfect! What content creation platform do you primarily use?
 
 🧑 You: YouTube
-🤖 AutoStream: 🎉 You're all set, Ayush Roy! Our team will reach out shortly...
+🤖 AutoStream:  You're all set, Ayush Roy! Our team will reach out shortly...
 ```
 
 ---
 
-## 🏗️ Architecture Explanation (~200 words)
+##  Architecture Explanation 
 
 ### Why LangGraph?
 
@@ -88,7 +88,7 @@ This architecture cleanly separates concerns (classification, retrieval, collect
 
 ---
 
-## 📱 WhatsApp Integration via Webhooks
+##  WhatsApp Integration via Webhooks
 
 To deploy this agent on WhatsApp, you would use the **WhatsApp Business API** (via Meta Cloud API or a provider like Twilio) with a webhook-based architecture:
 
@@ -110,28 +110,26 @@ User (WhatsApp) → Meta Cloud API → Your Webhook Server → AutoStream Agent 
 
    app = FastAPI()
 
-   # Store per-user agent state (in production, use Redis/DB)
+   
    user_sessions = {}
 
    @app.post("/webhook")
    async def webhook(request: Request):
        data = await request.json()
        
-       # Extract sender phone number and message text
+       
        phone = data["entry"][0]["changes"][0]["value"]["messages"][0]["from"]
        message = data["entry"][0]["changes"][0]["value"]["messages"][0]["text"]["body"]
        
-       # Get or create agent state for this user
+      
        if phone not in user_sessions:
            user_sessions[phone] = create_initial_state()
        
-       # Run the agent graph with the user's message
+       
        state = user_sessions[phone]
        state["messages"].append(HumanMessage(content=message))
        state = agent_app.invoke(state)
        user_sessions[phone] = state
-       
-       # Send response back via WhatsApp API
        send_whatsapp_message(phone, state["response"])
        
        return {"status": "ok"}
@@ -140,7 +138,6 @@ User (WhatsApp) → Meta Cloud API → Your Webhook Server → AutoStream Agent 
 3. **Configure Meta Webhook**: Point `https://yourdomain.com/webhook` as the callback URL in the Meta Developer Dashboard with a verify token.
 
 4. **Send replies via the WhatsApp API**:
-
    ```python
    def send_whatsapp_message(to: str, text: str):
        url = f"https://graph.facebook.com/v18.0/{PHONE_NUMBER_ID}/messages"
@@ -159,7 +156,7 @@ User (WhatsApp) → Meta Cloud API → Your Webhook Server → AutoStream Agent 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 autostream-agent/
@@ -170,8 +167,5 @@ autostream-agent/
 └── README.md             # This file
 ```
 
----
 
-## 📄 License
 
-MIT License — feel free to use and modify for your own projects.

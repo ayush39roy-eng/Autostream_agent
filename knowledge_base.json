@@ -1,0 +1,45 @@
+{
+  "plans": [
+    {
+      "name": "Basic Plan",
+      "price": "$29/month",
+      "videos_per_month": "10 videos/month",
+      "resolution": "720p",
+      "features": [
+        "10 videos per month",
+        "720p resolution",
+        "Standard editing tools",
+        "Email support (business hours)"
+      ]
+    },
+    {
+      "name": "Pro Plan",
+      "price": "$79/month",
+      "videos_per_month": "Unlimited",
+      "resolution": "4K",
+      "features": [
+        "Unlimited videos per month",
+        "4K resolution",
+        "AI-powered captions",
+        "Advanced editing tools",
+        "Priority rendering",
+        "24/7 dedicated support"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "topic": "Refund Policy",
+      "details": "No refunds after 7 days from the date of purchase. Refund requests within 7 days can be submitted to support@autostream.io."
+    },
+    {
+      "topic": "Support Availability",
+      "details": "24/7 support is available only on the Pro plan. Basic plan users have access to email support during business hours (9 AM - 6 PM EST, Mon-Fri)."
+    }
+  ],
+  "company": {
+    "name": "AutoStream",
+    "tagline": "Automated video editing tools for content creators",
+    "description": "AutoStream helps content creators automate their video editing workflow with AI-powered tools, saving hours of manual editing time."
+  }
+}
